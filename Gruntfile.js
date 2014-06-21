@@ -7,8 +7,20 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.initConfig({
+    watch: {
+      sass: {
+        files: ['assets/css/scss/**/*.scss'],
+        tasks: ['styles']
+      },
+      js: {
+        files: ['assets/js/**/*.js', '!assets/js/app.min.js'],
+        tasks: ['scripts']
+      }
+    },
+
     sass: {
       dist: {
         options: {
@@ -35,7 +47,8 @@ module.exports = function (grunt) {
       options: {
         jshintrc: '.jshintrc.json',
         force: true,
-        reporter: require('jshint-stylish')
+        reporter: require('jshint-stylish'),
+        ignores: ['assets/js/app.min.js']
       },
       all: [
         'Gruntfile.js',
