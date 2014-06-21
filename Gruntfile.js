@@ -1,14 +1,17 @@
-'use strict';
+/* global module,require */
 
 module.exports = function (grunt) {
+  'use strict';
+
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.initConfig({
     sass: {
       dist: {
         options: {
-          style: 'expanded',
+          style: 'compressed',
           precision: 10
         },
         files: {
@@ -25,6 +28,18 @@ module.exports = function (grunt) {
         src: 'assets/css/main.css',
         dest: 'assets/css/main.css'
       }
+    },
+
+    jshint: {
+      options: {
+        jshintrc: '.jshintrc.json',
+        force: true,
+        reporter: require('jshint-stylish')
+      },
+      all: [
+        'Gruntfile.js',
+        'assets/js/**/*.js'
+      ]
     }
   });
 
