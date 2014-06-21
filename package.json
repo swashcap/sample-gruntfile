@@ -2,7 +2,7 @@
   "name": "grunt-test",
   "version": "0.0.1",
   "description": "Experimental tasks to experiment with Grunt.",
-  "main": "gruntfile.js",
+  "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,5 +13,10 @@
   ],
   "author": "swashcap@gmail.com",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^0.7.5",
+    "grunt-contrib-sass": "^0.7.3"
+  }
 }
