@@ -8,6 +8,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
   grunt.initConfig({
     watch: {
@@ -65,9 +66,21 @@ module.exports = function (grunt) {
           'assets/js/app.min.js': ['assets/js/app.js']
         }
       }
+    },
+
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'assets/img/',
+          src: ['**/*.{png,jpg,jpeg,gif}'],
+          dest: 'assets/img/'
+        }]
+      }
     }
   });
 
   grunt.registerTask('styles', ['sass', 'autoprefixer']);
   grunt.registerTask('scripts', ['jshint', 'uglify']);
+  grunt.registerTask('default', ['styles', 'scripts', 'imagemin']);
 };
