@@ -19,12 +19,12 @@ Running these sample tasks requires some setup. Here’s what you’ll need:
 * **[Sass](http://sass-lang.com):** a “CSS preprocessor” that extends regular ol’ CSS with some goodies
 * **[Grunt](http://gruntjs.com):** a command line “task runner” that makes building and deployment easy
 
-Refer to Sass’s official [Installation guide](http://sass-lang.com/install) for additional assistance.
-
 ### Installing Sass
 
 1. You need to have [Ruby running on your machine](https://www.ruby-lang.org/en/downloads/) (most systems come with it pre-installed).
 2. Open a [shell window](http://en.wikipedia.org/wiki/Shell_(computing)) and run `gem install sass`.
+
+Refer to Sass’s official [Installation guide](http://sass-lang.com/install) for additional assistance.
 
 ### Getting Grunt Up and Running
 
