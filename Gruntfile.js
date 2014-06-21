@@ -6,6 +6,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.initConfig({
     sass: {
@@ -40,8 +41,20 @@ module.exports = function (grunt) {
         'Gruntfile.js',
         'assets/js/**/*.js'
       ]
+    },
+
+    uglify: {
+      options: {
+        mangle: false
+      },
+      dist: {
+        files: {
+          'assets/js/app.min.js': ['assets/js/app.js']
+        }
+      }
     }
   });
 
   grunt.registerTask('styles', ['sass', 'autoprefixer']);
+  grunt.registerTask('scripts', ['jshint', 'uglify']);
 };
